@@ -53,7 +53,7 @@
         {% endif %}
       </ul>
     {% endif %}
-
+{% comment %}
     <form action="/search" method="get" role="search">
       <label for="Search-{{ section.id }}" class="label-hidden">
         {{ 'general.search.placeholder' | t }}
@@ -70,6 +70,7 @@
         <span class="icon-fallback-text">{{ 'general.search.submit' | t }}</span>
       </button>
     </form>
+    {% endcomment %}
     <nav class="navbar navbar-expand-sm bg-light" role="navigation">
       <div class="justify-content-left">    {% if template.name == 'index' %}
         <h1>
@@ -92,19 +93,22 @@
         </div>
       {% endif %}
     </div> 
-    <a href="/cart" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo">
-    {%comment%}  {% include 'icon-cart' %} {% endcomment %}
-       <span class="fa fa-shopping-cart"></span>
-      {{ 'layout.cart.title' | t }}
-      ({{ cart.item_count }} {{ 'layout.cart.items_count' | t: count: cart.item_count }})
-    </a>
+    <div class="justify-content-right menu-right menu-part">
+      <a  type="button" data-bs-toggle="offcanvas" data-bs-target="#demo">
+        {%comment%}  {% include 'icon-cart' %} {% endcomment %}
+           <span class="fa fa-shopping-cart"></span>
+        
+          ({{ cart.item_count }} )
+        </a>
   
     <button class="navbar-toggle" type="button" onclick="toggle_class(this)" data-bs-toggle="collapse" data-bs-target="#navbar-collapse-x">
       <span class="icon-bar top-bar"></span>
       <span class="icon-bar middle-bar"></span>
       <span class="icon-bar bottom-bar"></span>
-    </button><div id="navbar-collapse-x" class="collapse navbar-collapse">
-
+    </button>
+  </div>
+    <div id="navbar-collapse-x" class="collapse navbar-collapse">
+   
       <ul class="navbar-nav justify-content-right menu-right">  {% for link in linklists[section.settings.menu].links %}
           {% if link.links != blank %}
             <li class="nav-item">
@@ -130,10 +134,11 @@
             </li>
           {% endif %}
         {% endfor %}
-      </ul></div>
+      </ul>
+    </div>
 
    
-    
+  
       
     </nav>
   
