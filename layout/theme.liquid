@@ -6,7 +6,8 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="{{ settings.color_accent }}">
   <link rel="canonical" href="{{ canonical_url }}">
-
+  {{ 'bootstrap.min.css' | asset_url | stylesheet_tag }}
+  {{ 'fasco.css' | asset_url | stylesheet_tag }}
   {%- if settings.favicon != blank -%}
     <link rel="shortcut icon" href="{{ settings.favicon | img_url: '32x32' }}" type="image/png">
   {%- endif -%}
@@ -31,7 +32,6 @@
   {%- endif -%}
 
   {% include 'social-meta-tags' %}
-  {% include 'style-tags', layout: 'theme' %}
   {% include 'css-variables' %}
 
   <script>
@@ -47,21 +47,23 @@
     };
   </script>
 
-  {% include 'script-tags', layout: 'theme' %}
+
 
   {{ content_for_header }}
+  {% section 'header' %}
 </head>
 
 <body id="{{ page_title | handle }}" class="template-{{ template.name | handle }}">
-
+<div class="container">
   <a class="in-page-link visually-hidden skip-link" href="#MainContent">{{ 'general.accessibility.skip_to_content' | t }}</a>
 
-  {% section 'header' %}
+  
 
   <main role="main" id="MainContent">
     {{ content_for_layout }}
   </main>
-
+  {{ 'bootstrap.bundle.min.js'  | script_tag }}
+</div>
   {% section 'footer' %}
 
 </body>
