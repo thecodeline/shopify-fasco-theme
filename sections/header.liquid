@@ -93,13 +93,12 @@
       {% endif %}
     </div> 
     <a href="/cart" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo">
-      {% include 'icon-cart' %}
+    {%comment%}  {% include 'icon-cart' %} {% endcomment %}
+       <span class="fa fa-shopping-cart"></span>
       {{ 'layout.cart.title' | t }}
       ({{ cart.item_count }} {{ 'layout.cart.items_count' | t: count: cart.item_count }})
     </a>
-    <span class="material-symbols-outlined">
-      shopping_cart
-      </span>
+  
     <button class="navbar-toggle" type="button" onclick="toggle_class(this)" data-bs-toggle="collapse" data-bs-target="#navbar-collapse-x">
       <span class="icon-bar top-bar"></span>
       <span class="icon-bar middle-bar"></span>
