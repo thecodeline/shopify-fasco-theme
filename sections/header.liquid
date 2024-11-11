@@ -27,11 +27,7 @@
 
   <header role="banner">
 
-    <a href="/cart">
-      {% include 'icon-cart' %}
-      {{ 'layout.cart.title' | t }}
-      ({{ cart.item_count }} {{ 'layout.cart.items_count' | t: count: cart.item_count }})
-    </a>
+  
 
     {% if shop.customer_accounts_enabled %}
       <ul>
@@ -96,8 +92,21 @@
         </div>
       {% endif %}
     </div> 
-      <ul class="navbar-nav justify-content-right menu-right">
-        {% for link in linklists[section.settings.menu].links %}
+    <a href="/cart" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo">
+      {% include 'icon-cart' %}
+      {{ 'layout.cart.title' | t }}
+      ({{ cart.item_count }} {{ 'layout.cart.items_count' | t: count: cart.item_count }})
+    </a>
+    <span class="material-symbols-outlined">
+      shopping_cart
+      </span>
+    <button class="navbar-toggle" type="button" onclick="toggle_class(this)" data-bs-toggle="collapse" data-bs-target="#navbar-collapse-x">
+      <span class="icon-bar top-bar"></span>
+      <span class="icon-bar middle-bar"></span>
+      <span class="icon-bar bottom-bar"></span>
+    </button><div id="navbar-collapse-x" class="collapse navbar-collapse">
+
+      <ul class="navbar-nav justify-content-right menu-right">  {% for link in linklists[section.settings.menu].links %}
           {% if link.links != blank %}
             <li class="nav-item">
               <a class="nav-link" href="{{ link.url }}">
@@ -122,9 +131,32 @@
             </li>
           {% endif %}
         {% endfor %}
-      </ul>
+      </ul></div>
+
+   
+    
+      
     </nav>
   
+    <div class="offcanvas offcanvas-end" id="demo">
+      <div class="offcanvas-header">
+        <h1 class="offcanvas-title">Heading</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+      </div>
+      <div class="offcanvas-body">
+        <p>Some text lorem ipsum.</p>
+        <p>Some text lorem ipsum.</p>
+        <p>Some text lorem ipsum.</p>
+        <button class="btn btn-secondary" type="button">A Button</button>
+      </div>
+    </div>
+    
+    
+ 
+
+
+
+
   </header>
 
 </section>
@@ -137,7 +169,11 @@
     }
   </style>
 {% endif %}
-
+<script>
+  function toggle_class(elem){
+ elem.classList.toggle("hide_me");
+  }
+</script>
 {% schema %}
   {
     "name": "Header",
