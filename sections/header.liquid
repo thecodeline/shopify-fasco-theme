@@ -88,14 +88,14 @@
    
       <ul class="navbar-nav justify-content-right menu-right">  {% for link in linklists[section.settings.menu].links %}
           {% if link.links != blank %}
-            <li class="nav-item">
-              <a class="nav-link" href="{{ link.url }}">
+            <li class="nav-item dropdown">
+             <div class="arrow-cont"> <a class="nav-link dropbtn"  href="{{ link.url }}" >
                 {{ link.title }}
-                {% include 'icon-arrow-down' %}
-              </a>
-              <ul>
+              
+              </a> <span onclick="toggle_class_drop(this);" class="mob-arrow"><i class="fa fa-arrow-down"></i></span></div>
+              <ul class="dropdown-content">
                 {% for childlink in link.links %}
-                  <li class="nav-item">
+                  <li class="nav-item ">
                     <a class="nav-link" href="{{ childlink.url }}">
                       {{ childlink.title }}
                     </a>
@@ -302,6 +302,19 @@
   
  update_quantity(id,qu);
  }
+ function toggle_class_drop(elem){
+if(elem.children[0].classList.contains("fa-arrow-down")){
+ 
+  elem.children[0].classList.toggle("fa-arrow-up");
+  elem.children[0].classList.toggle("fa-arrow-down");
+ elem.parentElement.parentElement.getElementsByClassName("dropdown-content")[0].style="display:block";
+    
+}else{
+  elem.children[0].classList.toggle("fa-arrow-down");
+  elem.children[0].classList.toggle("fa-arrow-up");
+  elem.parentElement.parentElement.getElementsByClassName("dropdown-content")[0].style="display:none";
+}
+}
 </script>
 
 {% if section.settings.logo != blank %}
