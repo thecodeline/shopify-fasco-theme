@@ -74,7 +74,7 @@
       <a  type="button" data-bs-toggle="offcanvas" data-bs-target="#demo">
         {%comment%}  {% include 'icon-cart' %} {% endcomment %}
            <span class="fa fa-shopping-cart"></span>
-           <span class='badge badge-warning' id='lblCartCount'> {{ cart.item_count }} </span>
+           <span class='badge badge-warning' id='lblCartCount'><span class="cartcount"> {{ cart.item_count }} </span></span>
            
         </a>
   
@@ -160,7 +160,7 @@
                   <th>{{ 'cart.label.price' | t }}</th>
                   <th>{{ 'cart.label.quantity' | t }}</th>
                   <th>{{ 'cart.label.total' | t }}</th>
-                  <th></th>
+                  
                 </tr>
               </thead>
               <tbody>
@@ -231,9 +231,7 @@
                     <td data-label="{{ 'cart.label.total' | t }}">
                       {{ item.line_price | money_without_trailing_zeros }}
                     </td>
-                    <td>
-                      <strong class="remove-product">X</strong>
-                    </td>
+                 
                  
                   </tr>
                 
