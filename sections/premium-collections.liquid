@@ -1,38 +1,22 @@
 <section class="premium-collections">
     <div class="row">
-<div class="col-md-4">
-    <a href={{ section.settings.Collection1.url }}>   {% include 'responsive-image' with
-        image: section.settings.image1,
-        image_class: "collection c1",
-        max_height: "600",
-        max_width: "400"
-      %}</a>
+<div class="col-md-4 premium-section">
+
+      <a href={{ section.settings.Collection1.url }}> <img class="preimum-collection c1" src="{{ section.settings.image1.src | img_url: "400x" }}">  </a>
 </div>
-<div class="col-md-4">
-    <a href={{ section.settings.Collection2.url }}>   {% include 'responsive-image' with
-        image: section.settings.image2,
-        image_class: "collection c2",
-        max_height: "200",
-        max_width: "600"
-      %}</a>
+<div class="col-md-4 premium-section">
+    <a href={{ section.settings.Collection2.url }}> <img class="preimum-collection c2" src="{{ section.settings.image2.src | img_url: "600x" }}">  </a>
+
       <h1 class="prem-heading">{{ section.settings.text1 }}</h1>
  
       <h1 class="prem-subheading">{{ section.settings.text2 }}</h1>
  
-      <a href={{ section.settings.Collection3.url }}>   {% include 'responsive-image' with
-        image: section.settings.image3,
-        image_class: "collection c3",
-        max_height: "200",
-        max_width: "600"
-      %}</a>
+      <a href={{ section.settings.Collection3.url }}> <img class="preimum-collection c3" src="{{ section.settings.image3.src | img_url: "600x" }}">  </a>
+
 </div>
-<div class="col-md-4">
-    <a href={{ section.settings.Collection4.url }}>   {% include 'responsive-image' with
-        image: section.settings.image4,
-        image_class: "collection c4",
-        max_height: "600",
-        max_width: "400"
-      %}</a>
+<div class="col-md-4 premium-section">
+    <a href={{ section.settings.Collection4.url }}> <img class="preimum-collection c4" src="{{ section.settings.image4.src | img_url: "400x" }}">  </a>
+
 
 </div>
     </div>

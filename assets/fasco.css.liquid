@@ -111,6 +111,7 @@ nav{
 }
 
 @media only screen and (min-width: 580px) {
+   
     .nav-item a{
         padding-right: 0.5rem !important;
         padding-left:0.5rem !important;
@@ -127,7 +128,7 @@ nav{
     display: block;
     padding: 0.5rem 0.5rem;
     font-size: 20px;
-    font-weight: 700;
+    font-weight: 400;
     color: var(--bs-nav-link-color);
     text-decoration: none;
     background: 0 0;
@@ -153,14 +154,37 @@ nav{
   ::-webkit-scrollbar-thumb:hover {
     background: #555; 
   }
-  .collection{
-    border-radius:10px;
-  }
+ 
   .brand, .brand a{
     text-decoration:unset;
     padding:12px;
     font-size:32px;
+    margin-left:15%;
+    color:black;
   }
   span.fa.fa-shopping-cart{
     font-size:32px;
+  }
+  .premium-collections{
+    margin-top:5%;
+  }
+  
+  .preimum-collection{
+    border-radius:10px;
+    max-width:400px;
+  } 
+  .premium-section{
+    text-align:center;
+    margin-left:auto;
+    margin-right:auto;
+    vertical-align:middle;
+  }
+  .c2,.c3{
+    max-height:245px; 
+  }
+ h1,h2,h3{
+    font-family:{{settings.font_heading}}
+ }
+  *:not(.fa,h1,h2,h3){
+    font-family:{{settings.font_body}}
   }

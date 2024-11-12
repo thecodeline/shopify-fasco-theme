@@ -75,13 +75,13 @@
         "settings": {
           "text1": "Ultimate Sale",
           "text2": "New Collection",
-          "image1": "shopify://shop_images/dapper-man-in-patterned-dress-shirt.jpg",
-          "Collection1": "",
+          "image1": "shopify://shop_images/portrait-of-young-man-leaning-on-chair.jpg",
+          "Collection1": "frontpage",
           "image2": "shopify://shop_images/man-holding-a-leather-bag-on-a-set-of-stairs.jpg",
           "Collection2": "",
-          "image3": "shopify://shop_images/dark-shirt-mens-fashion.jpg",
+          "image3": "shopify://shop_images/rooftop-city-fashion.jpg",
           "Collection3": "",
-          "image4": "shopify://shop_images/rooftop-city-fashion.jpg",
+          "image4": "shopify://shop_images/man-poses-in-style-at-edge-of-bed.jpg",
           "Collection4": ""
         }
       }
