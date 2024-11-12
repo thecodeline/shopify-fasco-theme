@@ -105,6 +105,7 @@
     <button
       type="submit"
       name="add"
+      
       data-submit-button
       {% unless current_variant.available %}disabled="disabled"{% endunless %}>
         <span data-submit-button-text>
@@ -115,8 +116,14 @@
           {% endif %}
         </span>
     </button>
-  {% endform %}
-
+    <a href="#" onclick="prepare_to_cart('{{ current_variant.id }}');">Add Now</a>
+{% endform %}
+<script>
+  function prepare_to_cart(item_id){
+  var quantity = document.getElementById("Quantity").value;
+  add_to_cart(item_id,quantity);
+  }
+</script>
   <div class="rte">
     {{ product.description }}
   </div>
