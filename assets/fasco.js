@@ -17,7 +17,7 @@
          body: JSON.stringify(formData)
        })
        .then(response => {
-        $('.offcanvas-body').load(document.URL +  ' .offcanvas-body');
+        $('#cart-form').load(document.URL +  ' #cart-form');
         $(".cartcount").load(document.URL+ ' .cartcount'); 
         return response.json();
 
@@ -47,7 +47,7 @@
           })
       })
       .then(response => {
-        $('.offcanvas-body').load(document.URL +  ' .offcanvas-body');
+        $('#cart-form').load(document.URL +  ' #cart-form');
         $(".cartcount").load(document.URL+ ' .cartcount');  
         return response.json();
       })

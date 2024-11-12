@@ -152,7 +152,7 @@
         {% if cart.item_count > 0 %}
       
         
-          <form action="/cart" method="post" novalidate>
+          <form id="cart-form" action="/cart" method="post" novalidate>
             <table class="responsive-table cart-items">
               <thead class="small--hide">
                 <tr>
@@ -218,15 +218,19 @@
                         {{ item.price | money_without_trailing_zeros }}
                       {% endif %}
                     </td>
-                    <td data-label="{{ 'cart.label.quantity' | t }}">
-                      <input type="number"
+                    <td data-label="{{ 'cart.label.quantity' | t }}" class="q-container">
+                      <span class="red _q" onclick="rem_q('{{ item.id }}',{{ item.quantity }})"> -</span> <span class="qn">
+                      {{ item.quantity }}
+                      </span>
+                    <!--  <input type="number"
                              name="updates[]"
                              onchange="update_quantity('{{ item.id }}',this.value)"
                              class="form-control quantity"
                              id="updates_{{ item.key }}"
                              value="{{ item.quantity }}"
                              min="0"
-                             aria-label="{{ 'cart.general.item_quantity' | t }}">
+                             aria-label="{{ 'cart.general.item_quantity' | t }}"> -->
+                      <span class="add _q" onclick="add_q('{{ item.id }}',{{ item.quantity }})">+</span>
                     </td>
                     <td data-label="{{ 'cart.label.total' | t }}">
                       {{ item.line_price | money_without_trailing_zeros }}
@@ -287,7 +291,18 @@
   </header>
 
 </section>
-
+<script>
+  function add_q(id,q){
+     var qu = q+1;
+   
+  update_quantity(id,qu);
+  }
+  function rem_q(id,q){
+    var qu = q-1;
+  
+ update_quantity(id,qu);
+ }
+</script>
 
 {% if section.settings.logo != blank %}
   <style>
