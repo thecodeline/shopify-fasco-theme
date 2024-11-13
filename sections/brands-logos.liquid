@@ -8,22 +8,22 @@
 						<div class="carousel-item active">
 							<div class="row">
 								<div class="col-6 col-lg-2 align-self-center">
-									<img class="d-block w-100 px-3 mb-3" src="https://cdn.livecanvas.com/media/logos/11.png" alt="">
+									<img class="d-block w-100 px-3 mb-3" src="{{ section.settings.image1.src }}" alt="">
 								</div>
 								<div class="col-6 col-lg-2  align-self-center">
-									<img class="d-block w-100 px-3  mb-3" src="https://cdn.livecanvas.com/media/logos/2.png" alt="">
+									<img class="d-block w-100 px-3  mb-3" src="{{ section.settings.image2.src }}" alt="">
 								</div>
 								<div class="col-6 col-lg-2  align-self-center">
-									<img class="d-block w-100 px-3  mb-3" src="https://cdn.livecanvas.com/media/logos/3.png" alt="">
+									<img class="d-block w-100 px-3  mb-3" src="{{ section.settings.image3.src }}" alt="">
 								</div>
 								<div class="col-6 col-lg-2  align-self-center">
-									<img class="d-block w-100 px-3  mb-3" src="https://cdn.livecanvas.com/media/logos/12.png" alt="">
+									<img class="d-block w-100 px-3  mb-3" src="{{ section.settings.image4.src }}" alt="">
 								</div>
 								<div class="col-6 col-lg-2  align-self-center">
-									<img class="d-block w-100 px-3  mb-3" src="https://cdn.livecanvas.com/media/logos/5.png" alt="">
+									<img class="d-block w-100 px-3  mb-3" src="{{ section.settings.image5.src }}" alt="">
 								</div>
 								<div class="col-6 col-lg-2  align-self-center">
-									<img class="d-block w-100 px-3  mb-3" src="https://cdn.livecanvas.com/media/logos/6.png" alt="">
+									<img class="d-block w-100 px-3  mb-3" src="{{ section.settings.image6.src }}" alt="">
 								</div>
 							</div>
 
@@ -31,22 +31,22 @@
 						<div class="carousel-item">
 							<div class="row">
 								<div class="col-6 col-lg-2 align-self-center">
-									<img class="d-block w-100 px-3 mb-3" src="https://cdn.livecanvas.com/media/logos/11.png" alt="">
+									<img class="d-block w-100 px-3 mb-3" src="{{ section.settings.image1.src }}" alt="">
 								</div>
 								<div class="col-6 col-lg-2  align-self-center">
-									<img class="d-block w-100 px-3  mb-3" src="https://cdn.livecanvas.com/media/logos/2.png" alt="">
+									<img class="d-block w-100 px-3  mb-3" src="{{ section.settings.image2.src }}" alt="">
 								</div>
 								<div class="col-6 col-lg-2  align-self-center">
-									<img class="d-block w-100 px-3  mb-3" src="https://cdn.livecanvas.com/media/logos/3.png" alt="">
+									<img class="d-block w-100 px-3  mb-3" src="{{ section.settings.image3.src }}" alt="">
 								</div>
 								<div class="col-6 col-lg-2  align-self-center">
-									<img class="d-block w-100 px-3  mb-3" src="https://cdn.livecanvas.com/media/logos/12.png" alt="">
+									<img class="d-block w-100 px-3  mb-3" src="{{ section.settings.image4.src }}" alt="">
 								</div>
 								<div class="col-6 col-lg-2  align-self-center">
-									<img class="d-block w-100 px-3  mb-3" src="https://cdn.livecanvas.com/media/logos/5.png" alt="">
+									<img class="d-block w-100 px-3  mb-3" src="{{ section.settings.image5.src }}" alt="">
 								</div>
 								<div class="col-6 col-lg-2  align-self-center">
-									<img class="d-block w-100 px-3  mb-3" src="https://cdn.livecanvas.com/media/logos/6.png" alt="">
+									<img class="d-block w-100 px-3  mb-3" src="{{ section.settings.image6.src }}" alt="">
 								</div>
 							</div>
 
@@ -54,12 +54,7 @@
 
 					</div>
 
-					<!--
-	<ol class="carousel-indicators list-unstyled position-relative mt-3">
-		<li data-bs-target="#carouselLogos" data-bs-slide-to="0" class="active bg-dark carousel-control-prev-icon"></li>
-		<li data-bs-target="#carouselLogos" data-bs-slide-to="1" class="bg-dark"></li>
-	</ol>
-	-->
+		
 
 					<div class="w-100 px-3 text-center mt-4">
 						<a class="carousel-control-prev position-relative d-inline me-4" href="#carouselLogos" data-bs-slide="prev">
@@ -98,7 +93,37 @@
     {
         "type": "image_picker",
         "id": "image1",
-        "label": "Firt Logo",
+        "label": "First Logo",
+       
+      },
+      {
+        "type": "image_picker",
+        "id": "image2",
+        "label": "Second Logo",
+       
+      },
+      {
+        "type": "image_picker",
+        "id": "image3",
+        "label": "Third Logo",
+       
+      },
+      {
+        "type": "image_picker",
+        "id": "image4",
+        "label": "Fourth Logo",
+       
+      },
+      {
+        "type": "image_picker",
+        "id": "image5",
+        "label": "Fifth Logo",
+       
+      },
+      {
+        "type": "image_picker",
+        "id": "image6",
+        "label": "Sixth Logo",
        
       },
      
