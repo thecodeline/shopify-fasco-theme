@@ -1,3 +1,5 @@
+
+<h1>{{ section.settings.date_picker | date: "%m-%d-%Y" }}</h1>
 {% schema %}
   {
     "name": "Deal Countdown",
@@ -9,12 +11,35 @@
         "label": "Heading",
         "default": "Deal "
       },
+      { "type": "richtext",
+        "id": "rich_text",
+        "label": "Body"
+      },
       {
-        "type": "date",
-        "id": "date_1",
-        "label": "Date Deal Ends",
-        "default": ""
-      }
+        "type": "text",
+        "id": "date_picker",
+        "label": "Choose date",
+        "default": "12-24-2025",
+        "info": "e.g. mm-dd-yyyy"
+      },{
+        "type":"image_picker",
+        "id": "image_1",
+        "label":"Choose Image 1"
+        }
+        ,{
+            "type":"image_picker",
+            "id": "image_2",
+            "label":"Choose Image 2"
+            }
+            ,{
+                "type":"image_picker",
+                "id": "image_3",
+                "label":"Choose Image 3"
+                },{
+                    "type":"image_picker",
+                    "id": "image_4",
+                    "label":"Choose Image 4"
+                    }
     ], 
   
     "presets": [
