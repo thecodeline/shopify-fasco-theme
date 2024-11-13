@@ -88,7 +88,14 @@
       },
       "brands_logos_tfhtNr": {
         "type": "brands-logos",
-        "settings": {}
+        "settings": {
+          "image1": "shopify://shop_images/logoipsum-311.svg",
+          "image2": "shopify://shop_images/logoipsum-286.svg",
+          "image3": "shopify://shop_images/logoipsum-264.svg",
+          "image4": "shopify://shop_images/logoipsum-242.svg",
+          "image5": "shopify://shop_images/logoipsum-232.svg",
+          "image6": "shopify://shop_images/logoipsum-220.svg"
+        }
       }
     },
     "content_for_index": [

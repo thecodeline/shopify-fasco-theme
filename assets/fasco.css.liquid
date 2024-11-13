@@ -461,11 +461,11 @@ img{
 }
 span.add._q {
     font-size: 36px;
-    color: #5cb85c;
-    vertical-align:super;
+    color: black;
+    vertical-align:9px;
 }
 .qn{
-    vertical-align: super;
+    vertical-align:12px;
     font-size:larger;
 }
 .fasco-container{
@@ -515,6 +515,15 @@ span.add._q {
 
 }
 @media only screen and (max-width:1200px){
+    .c1,.c4{
+        max-height:200px;
+        
+    }
+    .part2, .part3 {
+        display: flex;
+        flex-basis: fit-content;
+        
+    }
     .dropdown-content{
         list-style: none;
         display:none;
@@ -533,3 +542,7 @@ span.add._q {
         animation: scale-in-center 1s cubic-bezier(.25,.46,.45,.94) both;
       } 
 } 
+.c1,.c2,.c3,.c4{
+    -webkit-animation: fade-in 1.5s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+    animation: fade-in 1.5s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
