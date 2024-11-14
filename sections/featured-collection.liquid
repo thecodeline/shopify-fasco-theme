@@ -16,7 +16,7 @@
   {%- assign collection = collections[section.settings.collection] -%}
 
   {% for product in collection.products limit: 6 %}
-    <div class="col-md-4">
+    <div class="col-md-4 product-card">
     <a href="{{ product.url | within: collection }}" class="featured-collection-item">
       {% if product.featured_image != blank %}
         <div class="featured-collection__image">
@@ -28,39 +28,30 @@
         </div>
       {% endif %}
 
-      <p>{{ product.title | escape }}</p>
-      <span>
+      <p class="product-title">{{ product.title | escape | truncate: 50 }}
+      <span class="price">
         {% if product.compare_at_price > product.price %}
           {% if product.price_varies %}
-            {%- assign sale_price = product.price | money -%}
+            {%- assign sale_price = product.price | money_without_trailing_zeros -%}
             {{ 'products.product.on_sale_from_html' | t: price: sale_price }}
           {% else %}
             {{ 'products.product.on_sale' | t }}
-            {{ product.price | money }}
+            {{ product.price | money_without_trailing_zeros }}
           {% endif %}
         {% else %}
           {% if product.price_varies %}
-            {%- assign price = product.price | money -%}
+            {%- assign price = product.price | money_without_trailing_zeros -%}
             {{ 'products.product.from_text_html' | t: price: price }}
           {% else %}
-            {{ product.price | money }}
+            {{ product.price | money_without_trailing_zeros }}
           {% endif %}
         {% endif %}
-      </span>
+      </span></p>
     </a>
-  {% else %}
-    {% for i in (1..6) %}
-      <div class="col-md-4">
-      <a href="#" class="featured-collection-item">
-        {% capture current %}{% cycle 1, 2, 3, 4, 5, 6 %}{% endcapture %}
-        {{ 'product-' | append: current | placeholder_svg_tag: 'placeholder-svg placeholder-svg--small' }}
+    <span class="add-to-cart"><a href="#" class="btn btn-fasco btn-lg"> <i class="fa fa-shopping-cart"></i> Add To Cart</a></span>
+  </div>
 
-        <p>{{ 'homepage.onboarding.product_title' | t }}</p>
-        <p>{{ 1999 | money }}</p>
-      </a>
-    </div>
-    {% endfor %}
-  
+ 
   {% endfor %}
   
 </section>

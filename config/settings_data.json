@@ -7,7 +7,7 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
- {
+{
   "current": {
     "font_heading": "helvetica_n4",
     "sections": {
@@ -102,6 +102,8 @@
         "type": "deal",
         "settings": {
           "title": "Deals Of The Month",
+          "button_text": "Buy Now",
+          "button_link": "./collections/all",
           "rich_text": "<p><strong>Lorem Ipsum</strong>is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>",
           "date_picker": "12-24-2025",
           "image_1": "shopify://shop_images/mens-fashion-loose-cotton-shirt-and-rolled-up-jeans.jpg",
@@ -109,15 +111,23 @@
           "image_3": "shopify://shop_images/mens-fall-fashion-by-red-wall.jpg",
           "image_4": "shopify://shop_images/man-in-suit.jpg"
         }
+      },
+      "newsletter_F6GX4d": {
+        "type": "newsletter",
+        "settings": {
+          "section_title": "Subscribe to our newsletter",
+          "subheading": "A short sentence describing what someone will receive by subscribing"
+        }
       }
     },
     "content_for_index": [
       "premium_collections_6DaLVz",
       "brands_logos_tfhtNr",
       "deal_fN6QRd",
-      "collection-list",
       "featured-collection",
-      "featured-product"
+      "collection-list",
+      "featured-product",
+      "newsletter_F6GX4d"
     ]
   },
   "presets": {

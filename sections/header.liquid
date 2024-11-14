@@ -10,7 +10,7 @@
   Theme Store optional settings
   - Home page only: only shows on the home page
 {%- endcomment -%}
-<section data-section-id="{{ section.id }}" data-section-type="header">
+<section id="header" data-section-id="{{ section.id }}" data-section-type="header">
   {%- if section.settings.announcement_bar_enabled -%}
     <div class="upper-head">
       {%- if section.settings.announcement_bar_home_page_only == false or template.name == 'index' -%}
@@ -92,7 +92,7 @@
              <div class="arrow-cont"> <a class="nav-link dropbtn"  href="{{ link.url }}" >
                 {{ link.title }}
               
-              </a> <span onclick="toggle_class_drop(this);" class="mob-arrow"><i class="fa fa-arrow-down"></i></span></div>
+              </a> <span onclick="toggle_class_drop(this);" class="mob-arrow"><i class="fa fa-long-arrow-down"></i></span></div>
               <ul class="dropdown-content">
                 {% for childlink in link.links %}
                   <li class="nav-item ">
@@ -291,6 +291,7 @@
   </header>
 
 </section>
+<div class="padding"></div>
 <script>
   function add_q(id,q){
      var qu = q+1;
@@ -303,15 +304,15 @@
  update_quantity(id,qu);
  }
  function toggle_class_drop(elem){
-if(elem.children[0].classList.contains("fa-arrow-down")){
+if(elem.children[0].classList.contains("fa-long-arrow-down")){
  
-  elem.children[0].classList.toggle("fa-arrow-up");
-  elem.children[0].classList.toggle("fa-arrow-down");
+  elem.children[0].classList.toggle("fa-long-arrow-up");
+  elem.children[0].classList.toggle("fa-long-arrow-down");
  elem.parentElement.parentElement.getElementsByClassName("dropdown-content")[0].style="display:block";
     
 }else{
-  elem.children[0].classList.toggle("fa-arrow-down");
-  elem.children[0].classList.toggle("fa-arrow-up");
+  elem.children[0].classList.toggle("fa-long-arrow-down");
+  elem.children[0].classList.toggle("fa-long-arrow-up");
   elem.parentElement.parentElement.getElementsByClassName("dropdown-content")[0].style="display:none";
 }
 }
