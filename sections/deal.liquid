@@ -1,9 +1,9 @@
 
-<div class="row deal"><div class="col-md-6">
+<div class="row deal fasco-center"><div class="col-md-6 count-down-section">
 <h1>{{ section.settings.title }}</h1>
 <p>{{ section.settings.rich_text }}</p>
 <h3 id="count-down" class="count-down"></h3>
-<a href="#" class="btn btn-success"> Buy Now </a>
+<a href="{{ section.settings.button_link }}" class="btn btn-fasco btn-lg"> {{ section.settings.button_text }} </a>
 </div>
 <div class="col-md-6">
     <div class="swiper-container main-slider loading">
@@ -92,8 +92,8 @@
       var seconds = Math.floor((distance % (1000 * 60)) / 1000);
     
       // Display the result in the element with id="demo"
-      document.getElementById("count-down").innerHTML = days + " Days " + hours + " Hours "
-      + minutes + " Mins " + seconds + " Sec ";
+      document.getElementById("count-down").innerHTML = "<span class='time'><span class='days'>"+ days + " Days </span></span> <span class='time'><span class='hours'>"+hours + " Hours "
+      + "</span></span> <span class='time'><span class='minutes'>"+ minutes + " Mins "+" </span></span>  <span class='time'> <span class='seconds'>"+ seconds + " Sec </span></span> ";
     
       // If the count down is finished, write some text
       if (distance < 0) {
@@ -201,6 +201,18 @@ navSlider.controller.control = mainSlider;
         "id": "title",
         "label": "Heading",
         "default": "Deal "
+      },
+      {
+        "type": "text",
+        "id": "button_text",
+        "label": "Button Text",
+        "default": "Buy Now"
+      },
+      {
+        "type": "text",
+        "id": "button_link",
+        "label": "Button Link",
+        "default": "./collections/all"
       },
       { "type": "richtext",
         "id": "rich_text",
