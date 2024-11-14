@@ -28,7 +28,7 @@
         </div>
       {% endif %}
 
-      <p class="product-title">{{ product.title | escape | truncate: 50 }}
+      <p class="product-title">{{ product.title | escape | truncate: 50 | upcase }}
       <span class="price">
         {% if product.compare_at_price > product.price %}
           {% if product.price_varies %}
@@ -48,14 +48,23 @@
         {% endif %}
       </span></p>
     </a>
-    <span class="add-to-cart"><a href="#" class="btn btn-fasco btn-lg"> <i class="fa fa-shopping-cart"></i> Add To Cart</a></span>
-  </div>
+     <span class="add-to-cart">
+        <div  onclick="prepare_to_cart('{{ product.variants.first.id }}');" class="btn btn-fasco btn-lg">
+           <i class="fa fa-shopping-cart"></i> Add To Cart
+          </div>
+        </span>
+   
+   </div>
 
  
   {% endfor %}
   
 </section>
-    
+<script>
+  function prepare_to_cart(item_id){
+  add_to_cart(item_id,"1");
+  }
+</script>
 {% schema %}
   {
     "name": "Featured collection",
