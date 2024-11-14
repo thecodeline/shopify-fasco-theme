@@ -7,7 +7,8 @@
   <meta name="theme-color" content="{{ settings.color_accent }}">
   <link rel="canonical" href="{{ canonical_url }}">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.7/css/swiper.min.css'>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.7/js/swiper.min.js'></script>
   {{ 'bootstrap.min.css' | asset_url | stylesheet_tag }}
   {{ 'fasco.css' | asset_url | stylesheet_tag }}
   {%- if settings.favicon != blank -%}
@@ -66,7 +67,8 @@
   </main>
   {{ 'bootstrap.bundle.min.js' |  asset_url  | script_tag }}
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-
+ 
+  
   {{ 'fasco.js' |  asset_url  | script_tag }}
 </div>
   {% section 'footer' %}

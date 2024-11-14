@@ -7,7 +7,7 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
-{
+ {
   "current": {
     "font_heading": "helvetica_n4",
     "sections": {
@@ -89,6 +89,7 @@
       "brands_logos_tfhtNr": {
         "type": "brands-logos",
         "settings": {
+          "text1": "",
           "image1": "shopify://shop_images/logoipsum-311.svg",
           "image2": "shopify://shop_images/logoipsum-286.svg",
           "image3": "shopify://shop_images/logoipsum-264.svg",
@@ -96,11 +97,24 @@
           "image5": "shopify://shop_images/logoipsum-232.svg",
           "image6": "shopify://shop_images/logoipsum-220.svg"
         }
+      },
+      "deal_fN6QRd": {
+        "type": "deal",
+        "settings": {
+          "title": "Deals Of The Month",
+          "rich_text": "<p><strong>Lorem Ipsum</strong>is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>",
+          "date_picker": "12-24-2025",
+          "image_1": "shopify://shop_images/mens-fashion-loose-cotton-shirt-and-rolled-up-jeans.jpg",
+          "image_2": "shopify://shop_images/dark-shirt-mens-fashion.jpg",
+          "image_3": "shopify://shop_images/mens-fall-fashion-by-red-wall.jpg",
+          "image_4": "shopify://shop_images/man-in-suit.jpg"
+        }
       }
     },
     "content_for_index": [
       "premium_collections_6DaLVz",
       "brands_logos_tfhtNr",
+      "deal_fN6QRd",
       "collection-list",
       "featured-collection",
       "featured-product"

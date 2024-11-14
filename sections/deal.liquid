@@ -1,5 +1,196 @@
 
-<h1>{{ section.settings.date_picker | date: "%m-%d-%Y" }}</h1>
+<div class="row deal"><div class="col-md-6">
+<h1>{{ section.settings.title }}</h1>
+<p>{{ section.settings.rich_text }}</p>
+<h3 id="count-down" class="count-down"></h3>
+<a href="#" class="btn btn-success"> Buy Now </a>
+</div>
+<div class="col-md-6">
+    <div class="swiper-container main-slider loading">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <figure class="slide-bgimg" style="background-image:url({{ section.settings.image_1.src | img_url: "400x"}})">
+              <img src="{{ section.settings.image_1.src | img_url: "400x"}}" class="entity-img" />
+            </figure>
+          
+          </div>
+      
+          <div class="swiper-slide">
+            <figure class="slide-bgimg" style="background-image:url({{ section.settings.image_3.src | img_url: "400x"}})">
+              <img src="{{ section.settings.image_3.src | img_url: "400x"}}" class="entity-img" />
+            </figure>
+        
+          </div>
+          <div class="swiper-slide">
+            <figure class="slide-bgimg" style="background-image:url({{ section.settings.image_4.src | img_url: "400x"}})">
+              <img src="{{ section.settings.image_4.src | img_url: "400x"}}" class="entity-img" />
+            </figure>
+        
+          </div>
+          <div class="swiper-slide">
+            <figure class="slide-bgimg" style="background-image:url({{ section.settings.image_5.src | img_url: "400x"}})">
+              <img src="{{ section.settings.image_5.src | img_url: "400x"}}" class="entity-img" />
+            </figure>
+         
+          </div>
+        </div>
+        <!-- If we need navigation buttons -->
+        <div class="swiper-button-prev swiper-button-white"></div>
+        <div class="swiper-button-next swiper-button-white"></div>
+      </div>
+      
+      <!-- Thumbnail navigation -->
+      <div class="swiper-container nav-slider loading">
+        <div class="swiper-wrapper" role="navigation">
+     
+          <div class="swiper-slide">
+            <figure class="slide-bgimg" style="background-image:url({{ section.settings.image_1.src | img_url: "400x"}})">
+              <img src="{{ section.settings.image_1.src | img_url: "400x"}}" class="entity-img" />
+            </figure>
+         
+          </div>
+       
+          <div class="swiper-slide">
+            <figure class="slide-bgimg" style="background-image:url({{ section.settings.image_3.src | img_url: "400x"}})">
+              <img src="{{ section.settings.image_3.src | img_url: "400x"}}" class="entity-img" />
+            </figure> 
+          
+          </div>
+          <div class="swiper-slide">
+            <figure class="slide-bgimg" style="background-image:url({{ section.settings.image_4.src | img_url: "400x"}})">
+              <img src="{{ section.settings.image_4.src | img_url: "400x"}}" class="entity-img" />
+            </figure> 
+       
+          </div>
+          <div class="swiper-slide">
+            <figure class="slide-bgimg" style="background-image:url({{ section.settings.image_5.src | img_url: "400x"}})">
+              <img src="{{ section.settings.image_5.src | img_url: "400x"}}" class="entity-img" />
+            </figure> 
+     
+          </div>
+        </div>
+      </div>
+</div>
+</div>
+<script>
+    // Set the date we're counting down to
+    var countDownDate = new Date("{{ section.settings.date_picker | date: "%m-%d-%Y" }} 12:00:00").getTime();
+    
+    // Update the count down every 1 second
+    var x = setInterval(function() {
+    
+      // Get today's date and time
+      var now = new Date().getTime();
+    
+      // Find the distance between now and the count down date
+      var distance = countDownDate - now;
+    
+      // Time calculations for days, hours, minutes and seconds
+      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+      // Display the result in the element with id="demo"
+      document.getElementById("count-down").innerHTML = days + " Days " + hours + " Hours "
+      + minutes + " Mins " + seconds + " Sec ";
+    
+      // If the count down is finished, write some text
+      if (distance < 0) {
+        clearInterval(x);
+        document.getElementById("count-down").innerHTML = "EXPIRED";
+      }
+    }, 1000);
+
+
+    // Params
+let mainSliderSelector = '.main-slider',
+navSliderSelector = '.nav-slider',
+interleaveOffset = 0.5;
+
+// Main Slider
+let mainSliderOptions = {
+  loop: true,
+  speed:1000,
+  autoplay:{
+    delay:3000
+  },
+  loopAdditionalSlides: 10,
+  grabCursor: true,
+  watchSlidesProgress: true,
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+  on: {
+    init: function(){
+      this.autoplay.stop();
+    },
+    imagesReady: function(){
+      this.el.classList.remove('loading');
+      this.autoplay.start();
+    },
+    slideChangeTransitionEnd: function(){
+      let swiper = this,
+          captions = swiper.el.querySelectorAll('.caption');
+   
+    },
+    progress: function(){
+      let swiper = this;
+      for (let i = 0; i < swiper.slides.length; i++) {
+        let slideProgress = swiper.slides[i].progress,
+            innerOffset = swiper.width * interleaveOffset,
+            innerTranslate = slideProgress * innerOffset;
+       
+        swiper.slides[i].querySelector(".slide-bgimg").style.transform =
+          "translateX(" + innerTranslate + "px)";
+      }
+    },
+    touchStart: function() {
+      let swiper = this;
+      for (let i = 0; i < swiper.slides.length; i++) {
+        swiper.slides[i].style.transition = "";
+      }
+    },
+    setTransition: function(speed) {
+      let swiper = this;
+      for (let i = 0; i < swiper.slides.length; i++) {
+        swiper.slides[i].style.transition = speed + "ms";
+        swiper.slides[i].querySelector(".slide-bgimg").style.transition =
+          speed + "ms";
+      }
+    }
+  }
+};
+let mainSlider = new Swiper(mainSliderSelector, mainSliderOptions);
+
+// Navigation Slider
+let navSliderOptions = {
+  loop: true,
+  loopAdditionalSlides: 1,
+  speed:1000,
+  spaceBetween: 4,
+  slidesPerView: 4,
+  centeredSlides : true,
+  touchRatio: 0.2,
+  slideToClickedSlide: true,
+  direction: 'vertical',
+  on: {
+    imagesReady: function(){
+      this.el.classList.remove('loading');
+    },
+    click: function(){
+      mainSlider.autoplay.stop();
+    }
+  }
+};
+let navSlider = new Swiper(navSliderSelector, navSliderOptions);
+
+// Matching sliders
+mainSlider.controller.control = navSlider;
+navSlider.controller.control = mainSlider;
+    </script>
+
 {% schema %}
   {
     "name": "Deal Countdown",
@@ -40,6 +231,11 @@
                     "id": "image_4",
                     "label":"Choose Image 4"
                     }
+                    ,{
+                        "type":"image_picker",
+                        "id": "image_5",
+                        "label":"Choose Image 5"
+                        }
     ], 
   
     "presets": [
