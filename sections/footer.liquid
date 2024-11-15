@@ -1,9 +1,19 @@
 <ul class="payment-icons">
-  <li><img src="{{ section.settings.image_1 }}" alt="payment-icon-1"/></li>
-  <li><img src="{{ section.settings.image_2 }}" alt="payment-icon-2"/></li>
-  <li><img src="{{ section.settings.image_3 }}" alt="payment-icon-3"/></li>
-  <li><img src="{{ section.settings.image_4 }}" alt="payment-icon-4"/></li>
-  <li><img src="{{ section.settings.image_5 }}" alt="payment-icon-5"/></li>
+  {% if section.settings.image_1 %}
+  <li><img src="{{ section.settings.image_1.src }}" alt="payment-icon-1"/></li>
+  {% endif %}
+  {% if section.settings.image_2 %}
+  <li><img src="{{ section.settings.image_2.src }}" alt="payment-icon-2"/></li>
+  {% endif %}
+  {% if section.settings.image_3 %}
+  <li><img src="{{ section.settings.image_3.src }}" alt="payment-icon-3"/></li>
+  {% endif %}
+  {% if section.settings.image_4 %}
+  <li><img src="{{ section.settings.image_4s.src }}" alt="payment-icon-4"/></li>
+  {% endif %}
+  {% if section.settings.image_5 %}
+  <li><img src="{{ section.settings.image_5.src }}" alt="payment-icon-5"/></li>
+  {% endif %}
 </ul>
 <footer>
 

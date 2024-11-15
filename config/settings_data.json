@@ -67,7 +67,9 @@
       "footer": {
         "type": "footer",
         "settings": {
-          "show_payment_icons": true
+          "image_1": "shopify://shop_images/visa-logo-png-transparent.png",
+          "image_2": "shopify://shop_images/mastercard-logo-png-transparent.png",
+          "image_3": "shopify://shop_images/Paypal-Logo-PNG.png"
         }
       },
       "premium_collections_6DaLVz": {
