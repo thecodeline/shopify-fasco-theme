@@ -7,7 +7,7 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
- {
+{
   "current": {
     "font_heading": "helvetica_n4",
     "sections": {
@@ -67,8 +67,7 @@
       "footer": {
         "type": "footer",
         "settings": {
-          "footer_linklist": "footer",
-          "show_payment_icons": false
+          "show_payment_icons": true
         }
       },
       "premium_collections_6DaLVz": {

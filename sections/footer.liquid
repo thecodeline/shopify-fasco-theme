@@ -1,3 +1,10 @@
+<ul class="payment-icons">
+  <li><img src="{{ section.settings.image_1 }}" alt="payment-icon-1"/></li>
+  <li><img src="{{ section.settings.image_2 }}" alt="payment-icon-2"/></li>
+  <li><img src="{{ section.settings.image_3 }}" alt="payment-icon-3"/></li>
+  <li><img src="{{ section.settings.image_4 }}" alt="payment-icon-4"/></li>
+  <li><img src="{{ section.settings.image_5 }}" alt="payment-icon-5"/></li>
+</ul>
 <footer>
 
   {%- assign social_accounts = 'Facebook, Twitter, Pinterest, Instagram, Snapchat, Tumblr, YouTube, Vimeo,' | split: ', ' -%}
@@ -19,18 +26,7 @@
     {% endfor %}
   </ul>
 
-  {% if section.settings.show_payment_icons %}
-    {% unless shop.enabled_payment_types == empty %}
-      <span class="visually-hidden">{{ 'layout.footer.payment_methods' | t }}</span>
-      <ul class="payment-icons">
-        {% for type in shop.enabled_payment_types %}
-          <li>
-            {{ type | payment_type_svg_tag: class: 'icon' }}
-          </li>
-        {% endfor %}
-      </ul>
-    {% endunless %}
-  {% endif %}
+
 
 
 
@@ -44,12 +40,31 @@
     "name": "Footer",
     "settings": [
 
-      {
-        "type": "checkbox",
-        "id": "show_payment_icons",
-        "label": "Show payment icons",
-        "default": false
-      }
+     {
+     "type" : "image_picker",
+      "label":"Payment Icon 1",
+      "id": "image_1"
+    },
+    {
+      "type" : "image_picker",
+       "label":"Payment Icon 2",
+       "id": "image_2"
+     } ,{
+      "type" : "image_picker",
+       "label":"Payment Icon 3",
+       "id": "image_3"
+     },
+     {
+      "type" : "image_picker",
+       "label":"Payment Icon 4",
+       "id": "image_4"
+     },
+     {
+      "type" : "image_picker",
+       "label":"Payment Icon 5",
+       "id": "image_5"
+     }
+
     ]
   }
 
