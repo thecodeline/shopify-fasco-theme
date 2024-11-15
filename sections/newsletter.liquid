@@ -8,29 +8,37 @@
 {%- endcomment -%}
 <section class="news-section">
   {% if section.settings.section_title != blank %}
-    <label for="Email">{{ section.settings.section_title | escape }}</label>
+    <h1 class="section-title" for="Email">{{ section.settings.section_title | escape }}</h1>
   {% endif %}
-  {% if section.settings.subheading != blank %}
+  <div class="col-md-6 news-elem">
+ {% if section.settings.subheading != blank %}
     <p>{{ section.settings.subheading | escape }}</p>
   {% endif %}
-
+ 
   {% form 'customer' %}
     {{ form.errors | default_errors }}
     {% if form.posted_successfully? %}
       <p>{{ 'general.newsletter_form.confirmation' | t }}</p>
     {% else %}
-      <input type="hidden" name="contact[tags]" value="newsletter">
-      <input type="email"
-        name="contact[email]"
-        id="Email"
-        value="{% if customer.email != blank %}{{ customer.email }}{% endif %}"
-        placeholder="{{ 'general.newsletter_form.email_placeholder' | t }}"
-        autocorrect="off"
-        class="form-control"
-        autocapitalize="off">
-      <button type="submit" name="commit" id="Subscribe" class="btn btn-fasco"><i class="fa fa-envelope"></i>
+
+      <div class="input-group mb-3">
+        <input type="hidden" name="contact[tags]" value="newsletter">
+        <input type="email"
+          name="contact[email]"
+          id="Email"
+          value="{% if customer.email != blank %}{{ customer.email }}{% endif %}"
+          placeholder="{{ 'general.newsletter_form.email_placeholder' | t }}"
+          autocorrect="off"
+          class="form-control"
+          autocapitalize="off">
+        <span class="input-group-text" id="basic-addon2">   <button type="submit" name="commit" id="Subscribe" class="btn btn-fasco"><i class="fa fa-envelope"></i>
         <span>{{ 'general.newsletter_form.submit' | t }}</span>
-      </button>
+      </button></span>
+      </div>
+ 
+    </div>
+   
+    
     {% endif %}
   {% endform %}
 </section>
@@ -45,6 +53,7 @@
         "label": "Heading",
         "default": "Subscribe to our newsletter"
       },
+  
       {
         "type": "text",
         "id": "subheading",
