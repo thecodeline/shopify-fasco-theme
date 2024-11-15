@@ -5,7 +5,8 @@
     let formData = {
         'items': [{
          'id': item_id,
-         'quantity': quantity
+         'quantity': quantity,
+        
          }]
        };
        

@@ -1,36 +1,38 @@
-<section data-section-id="{{ section.id }}" data-section-type="product">
 
+
+<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css'>
+<section data-section-id="{{ section.id }}" data-section-type="product">
+ <a class="back-btn" href="{{ product.collections.first.url }}"><i class="fa fa-arrow-left"></i> Back to {{ product.collections.first.title }} </a>
+  <div class="row"> 
+ 
+{% if product.images.size > 1 %}
+   <div class="col-md-6">
+    <section class="section slider__section">
+      <div class="container slider__wrapper">
+         <div class="slider__column splide">
+            <div class="splide__track">
+               <ul class="splide__list">
+                {% for image in product.images %}
+                  <li class="splide__slide"><img src="{{ image.src | img_url: "400x" }}" alt="Slider"></li>
+                {% endfor %}
+                </ul>
+            </div>
+         </div>
+      </div>
+   </section>
+
+  
+ 
+   </div>
+  {% else %}
+    <img src="{{ product.images.first.src }}">
+  {% endif %}
+
+<div  class="col-md-6">
   {%- assign current_variant = product.selected_or_first_available_variant -%}
   {%- assign featured_image = current_variant.featured_image | default: product.featured_image -%}
 
-  {% for image in product.images %}
-    {% capture wrapper_class %}
-      {%- unless featured_image == image -%}
-        hide
-      {%- endunless -%}
-    {% endcapture %}
 
-    {% include 'responsive-image' with
-      image: image,
-      max_width: 700,
-      max_height: 800,
-      image_attributes: "data-product-featured-image",
-      wrapper_class: wrapper_class,
-      wrapper_attributes: "data-product-image-wrapper",
-    %}
-  {% endfor %}
-
-  {% if product.images.size > 1 %}
-    <ul>
-      {% for image in product.images %}
-        <li>
-          <a href="{{ image.src | img_url: '480x480' }}" data-thumbnail-id="{{ image.id }}" data-product-single-thumbnail{% if featured_image == image %} aria-current="true"{% endif %}>
-            <img class="product-single__thumbnail-image" src="{{ image.src | img_url: '160x160' }}" alt="{{ image.alt | escape }}">
-          </a>
-        </li>
-      {% endfor %}
-    </ul>
-  {% endif %}
 
   <h1>{{ product.title }}</h1>
   <p>{{ product.vendor }}</p>
@@ -42,12 +44,15 @@
         <div class="js">
 
           {% if forloop.index0 > 0 %}
-
+            <label for="Option{{ option.position }}">
+              {{ option.name }}
+            </label>
+             <select id="Option{{ option.position }}" class="form-control">
             {% for value in option.values %}
-              <input type="radio" id="Option{{ option.position }}-{{ value }}" name="options[{{ option.name }}]" value="{{ value }}"{% if option.selected_value == value %} checked{% endif %}>
-              <label for="Option{{ option.position }}-{{ value }}">{{ value }}</label>
+              <option  id="Option{{ option.position }}-{{ value }}" name="options[{{ option.name }}]" value="{{ value }}">
+              {{ value }}</option>
             {% endfor %}
-
+          </select>
           {% else %}
 
             <label for="Option{{ option.position }}">
@@ -56,7 +61,7 @@
 
             <select
               id="Option{{ option.position }}"
-              name="options[{{ option.name | escape }}]">
+              name="options[{{ option.name | escape }}]" class="form-control">
               {% for value in option.values %}
                 <option
                   value="{{ value | escape }}"
@@ -69,10 +74,11 @@
           {% endif %}
         </div>
       {% endfor %}
+    
     {% endunless %}
 
     <noscript>
-      <select name="id">
+      <select name="id" class="form-control">
         {% for variant in product.variants %}
           <option
             {% if variant == current_variant %}selected="selected"{% endif %}
@@ -85,11 +91,11 @@
     </noscript>
 
     <label for="Quantity">{{ 'products.product.quantity' | t }}</label>
-    <input type="number" id="Quantity" name="quantity" value="1" min="1">
+    <input type="number" id="Quantity" name="quantity" value="1" min="1" class="form-control">
 
     <div data-price-wrapper>
       <span data-product-price>
-        {{ current_variant.price | money }}
+        {{ current_variant.price | money_without_trailing_zeros }}
       </span>
 
       {% if product.compare_at_price_max > product.price %}
@@ -102,10 +108,10 @@
       {% endif %}
     </div>
 
-    <button
-      type="submit"
-      name="add"
+    <a href="#" onclick="prepare_to_cart();"
       
+      name="add"
+      class="btn btn-fasco"
       data-submit-button
       {% unless current_variant.available %}disabled="disabled"{% endunless %}>
         <span data-submit-button-text>
@@ -115,15 +121,58 @@
             {{ 'products.product.sold_out' | t }}
           {% endif %}
         </span>
-    </button>
-    <a href="#" onclick="prepare_to_cart('{{ current_variant.id }}');">Add Now</a>
+      </a>
+
+
 {% endform %}
 <script>
-  function prepare_to_cart(item_id){
+  function prepare_to_cart(){
   var quantity = document.getElementById("Quantity").value;
+  var item_id ="";
+
+  if(document.getElementById("Option1")){
+    var option1 = document.getElementById("Option1").value;
+  }
+  if(document.getElementById("Option2")){
+    var option2 = document.getElementById("Option2").value;
+  }
+  if(document.getElementById("Option3")){
+    var option3 = document.getElementById("Option3").value;
+  }
+  $.getJSON('/products/{{product.handle}}.json', function(data) {
+    
+    var farray = data.product.variants;
+    if(option1){
+    farray = farray.filter( (v)=>{
+    return v.option1 == option1;
+    });
+   
+  }
+  if(option2){
+    farray = farray.filter( (v)=>{
+    return v.option2 == option2;
+    });
+   
+  }
+
+  if(option3){
+    farray = farray.filter( (v)=>{
+    return v.option3 == option3;
+    });
+   
+  }
+  item_id  = farray[0].id;
+  item_id = item_id.toString();
   add_to_cart(item_id,quantity);
+
+});
+
   }
 </script>
+
+
+
+
   <div class="rte">
     {{ product.description }}
   </div>
@@ -131,8 +180,38 @@
   {% if section.settings.show_share_buttons %}
     {% include 'social-sharing', share_title: product.title, share_permalink: product.url, share_image: product %}
   {% endif %}
+</div></div>
 </section>
+<script src='https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js'></script>
+<script>
+  const splide = new Splide(".splide", {
+    // Optional parameters
+    start: 1,
+    perPage: 1.5,
+    perMove: 1,
+    gap: 20,
+    type: "loop",
+    drag: "free",
+    snap: false,
+    interval: 3000,
+    arrows: true,
+    pagination: true,
+    rewind: true,
+    rewindByDrag: true,
+    lazyLoad: true,
+  
+    // Responsive breakpoint
+    breakpoints: {
+      768: {
+        perPage: 1,
+        snap: true } } });
+  
+  
+  
+  
+  splide.mount();
 
+</script>
 {% schema %}
   {
     "name": "Product pages",

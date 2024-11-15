@@ -7,7 +7,7 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
-{
+ {
   "current": {
     "font_heading": "helvetica_n4",
     "sections": {
@@ -67,8 +67,8 @@
       "footer": {
         "type": "footer",
         "settings": {
-          "image_1": "shopify://shop_images/visa-logo-png-transparent.png",
-          "image_2": "shopify://shop_images/mastercard-logo-png-transparent.png",
+          "image_1": "shopify://shop_images/Old_Visa_Logo_svg.png",
+          "image_2": "shopify://shop_images/mc_symbol_opt_73_3x_2b9ca40b-8d8b-4a50-8b74-3a118c2d5e4a.png",
           "image_3": "shopify://shop_images/Paypal-Logo-PNG.png"
         }
       },

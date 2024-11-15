@@ -1,18 +1,18 @@
 <ul class="payment-icons">
   {% if section.settings.image_1 %}
-  <li><img src="{{ section.settings.image_1.src }}" alt="payment-icon-1"/></li>
+  <li><img src="{{ section.settings.image_1.src | img_url: "100x" }}" alt="payment-icon-1"/></li>
   {% endif %}
   {% if section.settings.image_2 %}
-  <li><img src="{{ section.settings.image_2.src }}" alt="payment-icon-2"/></li>
+  <li><img src="{{ section.settings.image_2.src | img_url: "100x" }}" alt="payment-icon-2"/></li>
   {% endif %}
   {% if section.settings.image_3 %}
-  <li><img src="{{ section.settings.image_3.src }}" alt="payment-icon-3"/></li>
+  <li><img src="{{ section.settings.image_3.src | img_url: "100x" }}" alt="payment-icon-3"/></li>
   {% endif %}
   {% if section.settings.image_4 %}
-  <li><img src="{{ section.settings.image_4s.src }}" alt="payment-icon-4"/></li>
+  <li><img src="{{ section.settings.image_4.src | img_url: "100x" }}" alt="payment-icon-4"/></li>
   {% endif %}
   {% if section.settings.image_5 %}
-  <li><img src="{{ section.settings.image_5.src }}" alt="payment-icon-5"/></li>
+  <li><img src="{{ section.settings.image_5.src | img_url: "100x" }}" alt="payment-icon-5"/></li>
   {% endif %}
 </ul>
 <footer>
