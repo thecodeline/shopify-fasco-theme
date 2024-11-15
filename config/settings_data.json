@@ -7,7 +7,7 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
-{
+ {
   "current": {
     "font_heading": "helvetica_n4",
     "sections": {
@@ -17,19 +17,19 @@
           "collection-list-0": {
             "type": "collection",
             "settings": {
-              "collection": ""
+              "collection": "frontpage"
             }
           },
           "collection-list-1": {
             "type": "collection",
             "settings": {
-              "collection": ""
+              "collection": "shirts"
             }
           },
           "collection-list-2": {
             "type": "collection",
             "settings": {
-              "collection": ""
+              "collection": "wallets"
             }
           }
         },
@@ -39,7 +39,7 @@
           "collection-list-2"
         ],
         "settings": {
-          "title": "Collection list"
+          "title": "Top Categories"
         }
       },
       "featured-collection": {

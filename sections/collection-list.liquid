@@ -8,15 +8,16 @@
 {%- endcomment -%}
 <section class="collection-list container">
   {% if section.settings.title != blank %}
-    <h2 class="collection-list__title">{{ section.settings.title | escape }}</h2>
+    <h2 class="collection-list__title section-title">{{ section.settings.title | escape }}</h2>
   {% endif %}
 <div class="row">
   {% for block in section.blocks %}
     {%- assign collection = collections[block.settings.collection] -%}
-<div class="col-md-4">
+<div class="col-md-4 collection-image">
     <a href="{{ collection.url | default: "#" }}" class="collection-list-item" {{ block.shopify_attributes }}>
       {% if collection.image != blank or collection.products.first != blank %}
         {%- assign image_object = collection.image | default: collection.products.first.featured_image -%}
+        <p class="collection-img-title">{{ collection.title | default: default_label }}</p>
         <div class="collection-list__image">
           {% include 'responsive-image' with
             image: image_object,
@@ -30,7 +31,7 @@
       {% endif %}
 
       {%- assign default_label = 'homepage.onboarding.collection_title' | t -%}
-      <p>{{ collection.title | default: default_label }}</p>
+     
     </a></div>
   {% endfor %}
 </div>
