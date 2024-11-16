@@ -50,6 +50,9 @@
       .then(response => {
         $('#cart-form').load(document.URL +  ' #cart-form');
         $(".cartcount").load(document.URL+ ' .cartcount');  
+        if(document.getElementById("cart-table")){
+          $("#cart-table").load(document.URL+ ' #cart-table'); 
+        }
         return response.json();
       })
       .catch((error) => {

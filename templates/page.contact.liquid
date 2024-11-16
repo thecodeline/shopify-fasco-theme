@@ -13,28 +13,33 @@
   {% endif %}
 
   {{ form.errors | default_errors }}
-
+<div class="row">
+  <div class="col-md-6">
   <label for="ContactFormName">{{ 'contact.form.name' | t }}</label>
   <input type="text"
     name="contact[name]"
     id="ContactFormName"
+    class="form-control"
     placeholder="{{ 'contact.form.name' | t }}"
     value="{% if form[name] %}{{ form[name] }}{% elsif customer %}{{ customer.name }}{% endif %}">
+  </div>  <div class="col-md-6">
 
   <label for="ContactFormEmail">{{ 'contact.form.email' | t }}</label>
   <input type="email"
     name="contact[email]"
     id="ContactFormEmail"
+    class="form-control"
     placeholder="{{ 'contact.form.email' | t }}"
     value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
     spellcheck="false"
     autocomplete="off"
     autocapitalize="off">
-
+  </div> </div>
   <label for="ContactFormPhone">{{ 'contact.form.phone' | t }}</label>
   <input type="tel"
     name="contact[phone]"
     id="ContactFormPhone"
+    class="form-control"
     placeholder="{{ 'contact.form.phone' | t }}"
     value="{% if form[phone] %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}"
     pattern="[0-9\-]*">
@@ -43,12 +48,13 @@
   <textarea rows="10"
     name="contact[body]"
     id="ContactFormMessage"
+    class="form-control"
     placeholder="{{ 'contact.form.message' | t }}">
     {%- if form.body -%}
       {{- form.body -}}
     {%- endif -%}
   </textarea>
 
-  <input type="submit" class="button" value="{{ 'contact.form.send' | t }}">
+  <input type="submit" class="btn btn-fasco btn-block btn-lg" value="{{ 'contact.form.send' | t }}">
 
 {% endform %}

@@ -16,10 +16,11 @@
     <input type="search"
            name="q"
            id="Search"
+           class="form-control"
            value="{{ search.terms | escape }}"
            placeholder="{{ 'general.search.placeholder' | t }}">
-    <button type="submit" class="button">
-      {% include 'icon-search' %}
+         <button type="submit" class="btn btn-fasco">
+       <i class="fa fa-search"></i>
       <span class="icon-fallback-text">{{ 'general.search.submit' | t }}</span>
     </button>
   </form>
@@ -29,15 +30,15 @@
       <p>{{ 'general.search.no_results_html' | t: terms: search.terms }}</p>
     {% else %}
       <h2 class="visually-hidden">{{ 'general.search.heading' | t: count: search.results_count }}</h2>
-      <ul>
+      <div class="row">
         {% for item in search.results %}
-          <li>
+          <div class="col-md-4 product-item">
             <a href="{{ item.url | within: collection }}">
               {% assign featured_image = item.image | default: item.featured_image %}
               {% if featured_image != blank %}
                 {{ featured_image | img_url: '240x240' | img_tag }}
               {% endif %}
-              <h3>{{ item.title }}</h3>
+              <h3>{{ item.title | truncate:50}}</h3>
             </a>
             {% if item.object_type == 'product' %}
               <p>
@@ -67,9 +68,9 @@
               <p>{{ item.content | strip_html | truncatewords: 50 }}</p>
             {% endif %}
 
-          </li>
+          </div>
         {% endfor %}
-      </ul>
+      </div> 
 
       {% if paginate.pages > 1 %}
         {% include 'pagination' %}

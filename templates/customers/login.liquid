@@ -71,7 +71,7 @@
 
     <input type="submit" class="button" value="{{ 'customer.recover_password.submit' | t }}">
 
-    <button type="button" data-recover-toggle>
+    <button type="button" class="btn btn-fasco" data-recover-toggle>
       {{ 'customer.recover_password.cancel' | t }}
     </button>
   {% endform %}
@@ -82,6 +82,6 @@
   <h2>{{ 'customer.login.guest_title' | t }}</h2>
 
   {% form 'guest_login' %}
-    <input type="submit" class="button" value="{{ 'customer.login.guest_continue' | t }}">
+    <input type="submit" class="btn btn-fasco" value="{{ 'customer.login.guest_continue' | t }}">
   {% endform %}
 {% endif %}

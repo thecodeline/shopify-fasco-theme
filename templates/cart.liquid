@@ -1,8 +1,8 @@
 {% if cart.item_count > 0 %}
   <h1>{{ 'cart.general.title' | t }}</h1>
 
-  <form action="/cart" method="post" novalidate>
-    <table class="responsive-table">
+  <form id="cart-form" action="/cart" method="post" novalidate>
+    <table id="cart-table" class="responsive-table">
       <thead class="small--hide">
         <tr>
           <th colspan="2">{{ 'cart.label.product' | t }}</th>
@@ -35,7 +35,7 @@
 
             </td>
             <td>
-              <a href="{{ item.url }}">{{ item.product.title }}</a>
+    
 
               {% unless item.product.has_only_default_variant %}
                 <p>{{ item.variant.title }}</p>
@@ -74,13 +74,19 @@
                 {{ item.price | money }}
               {% endif %}
             </td>
-            <td data-label="{{ 'cart.label.quantity' | t }}">
-              <input type="number"
+            <td data-label="{{ 'cart.label.quantity' | t }}" class="q-container">
+              <span class="red _q" onclick="rem_q('{{ item.id }}',{{ item.quantity }});"> -</span> <span class="qn">
+              {{ item.quantity }}
+              </span>
+            <!--  <input type="number"
                      name="updates[]"
+                     onchange="update_quantity('{{ item.id }}',this.value)"
+                     class="form-control quantity"
                      id="updates_{{ item.key }}"
                      value="{{ item.quantity }}"
                      min="0"
-                     aria-label="{{ 'cart.general.item_quantity' | t }}">
+                     aria-label="{{ 'cart.general.item_quantity' | t }}"> -->
+              <span class="add _q" onclick="add_q('{{ item.id }}',{{ item.quantity }});">+</span>
             </td>
             <td data-label="{{ 'cart.label.total' | t }}">
               {{ item.line_price | money }}
@@ -93,7 +99,7 @@
 
     {% if settings.cart_notes_enable %}
       <label for="CartSpecialInstructions">{{ 'cart.general.note' | t }}</label>
-      <textarea name="note" id="CartSpecialInstructions">{{ cart.note }}</textarea>
+      <textarea name="note" id="CartSpecialInstructions" class="form-control">{{ cart.note }}</textarea>
     {% endif %}
 
     <p>{{ 'cart.general.subtotal' | t }}</p>
@@ -102,8 +108,8 @@
       <p>{{ 'cart.general.savings' | t }} {{ cart.total_discounts | money }}</p>
     {% endif %}
     <p>{{ 'cart.general.shipping_at_checkout' | t }}</p>
-    <input type="submit" name="update" value="{{ 'cart.general.update' | t }}">
-    <input type="submit" name="checkout" class="button" value="{{ 'cart.general.checkout' | t }}">
+    <input type="submit" name="update" class="btn btn-fasco btn-lg cart-btn" value="{{ 'cart.general.update' | t }}">
+    <input type="submit" name="checkout" class="btn btn-fasco btn-lg cart-btn" value="{{ 'cart.general.checkout' | t }}">
   </form>
 {% else %}
   <h1>{{ 'cart.general.title' | t }}</h1>
