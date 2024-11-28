@@ -224,7 +224,8 @@
       all_products.split(",");
       $.getJSON('/products.json', function(data) {
 var parray = data.products;
-      console.log(parray);
+      parray = parray.filter((p)=>{
+        p.id == data[0]      });
     });
 
       }});
