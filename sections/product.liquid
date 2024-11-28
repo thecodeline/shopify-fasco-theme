@@ -237,7 +237,20 @@
           pid = pid.replace(/\s/g, "");
           return pid == p1;
         });
-        console.log(parray);
+            p2array = p2array.filter((p)=>{
+          var pid = p.id;
+          pid = pid.toString();
+          pid = pid.replace(/\s/g, "");
+          return pid == p2;
+        });
+        console.log(p2array);
+           p3array = p3array.filter((p)=>{
+          var pid = p.id;
+          pid = pid.toString();
+          pid = pid.replace(/\s/g, "");
+          return pid == p3;
+        });
+        console.log(p3array);
         
     });
       
