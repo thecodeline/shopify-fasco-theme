@@ -221,8 +221,8 @@
     //alert("Data: " + data);   
    
     var all_products = data;
-      console.log(all_products);
-      all_products.split(",");
+     
+      all_products = all_products.split(",");
       $.getJSON('/products.json', function(data) {
 var parray = data.products;
       parray = parray.filter((p)=>{
