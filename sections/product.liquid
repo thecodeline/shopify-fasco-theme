@@ -273,6 +273,8 @@
         fp.appendChild(p1card);
         var p2card =  document.createElement("DIV");
          p2card.setAttribute("class","col-md-4 product-item");
+         p2card.innerHTML='<a href="{{ shop.url }}/products/'+p2h+'"><img src="'+p2i+'" style="max-width:150px;"/><div>'+p2t+'</div></a>';
+        fp.appendChild(p2card);
     });
       
 
