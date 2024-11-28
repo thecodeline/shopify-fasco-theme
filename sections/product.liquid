@@ -217,7 +217,10 @@
     id: '{{ product.id }}',
   },
   function(data, status){
-    alert("Data: " + data + "\nStatus: " + status);
+    if(status == "success"){
+    alert("Data: " + data);      
+    }
+
   });
 </script>
 {% schema %}
