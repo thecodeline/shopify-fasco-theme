@@ -269,7 +269,7 @@
       var p3i = p3array[0].images[0].src;
       var p1card = document.createElement("DIV");
         p1card.setAttribute("class","col-md-4 product-item");
-        p1card.innerHTML='<a href="https://forthemesdev.myshopify.com/products/'+p1h+'"><img src="'+p1i+'" style="max-width:150px;"/><div>'+p1t+'</div></a>';
+        p1card.innerHTML='<a href="{{ shop.url }}/products/'+p1h+'"><img src="'+p1i+'" style="max-width:150px;"/><div>'+p1t+'</div></a>';
         fp.appendChild(p1card);
     });
       
