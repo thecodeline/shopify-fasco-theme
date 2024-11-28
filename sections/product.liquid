@@ -210,10 +210,14 @@
   
   
   splide.mount();
-  $.getJSON('https://megadata.cloud/upsell/get_rule.php?id={{product.id}}', function(data) {
-  console.log("Respone ="+data);
-  }
-
+    
+  $.post("https://megadata.cloud/upsell/get_rule.php",
+  {
+    id: '{{ product.id }}',
+  },
+  function(data, status){
+    alert("Data: " + data + "\nStatus: " + status);
+  });
 </script>
 {% schema %}
   {
