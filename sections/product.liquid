@@ -225,12 +225,12 @@
       all_products = all_products.split(",");
       $.getJSON('/products.json', function(data) {
         var parray = data.products;
-        var mproduct = all_products[0].replace(/\s/g, "");
+        var p1 = all_products[0].replace(/\s/g, "");
         parray = parray.filter((p)=>{
           var pid = p.id;
           pid = pid.toString();
           pid = pid.replace(/\s/g, "");
-          return pid == mproduct;
+          return pid == p1;
         });
         console.log(parray);
         
