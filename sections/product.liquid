@@ -224,10 +224,11 @@
      
       all_products = all_products.split(",");
       $.getJSON('/products.json', function(data) {
-     var parray = data.products;
+        var parray = data.products;
         var mproduct = all_products[0].replace(/\s/g, "");
         parray = parray.filter((p)=>{p.id == mproduct});
-        console.log(mproduct);;
+        console.log(mproduct);
+        
     });
       
 
