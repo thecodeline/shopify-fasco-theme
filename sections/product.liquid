@@ -226,8 +226,9 @@
       $.getJSON('/products.json', function(data) {
 var parray = data.products;
       parray = parray.filter((p)=>{
+        p.id == all_products[0]
               });
-        //console.log(parray);
+        console.log(parray);
     });
       
 
