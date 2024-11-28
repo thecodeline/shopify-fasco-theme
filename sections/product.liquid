@@ -263,12 +263,13 @@
        fp.appendChild(header); 
       var p1i = parray[0].images[0].src;
       var p1t = parray[0].title;
+      var p1h = parray[0].handle;
       p1t = p1t.substr(0,10);
       var p2i = p2array[0].images[0].src;
       var p3i = p3array[0].images[0].src;
       var p1card = document.createElement("DIV");
         p1card.setAttribute("class","col-md-4 product-item");
-        p1card.innerHTML='<a href=""><img src="'+p1i+'" style="max-width:150px;"/><div>'+p1t+'</div></a>';
+        p1card.innerHTML='<a href="https://forthemesdev.myshopify.com/products/'+p1h+'"><img src="'+p1i+'" style="max-width:150px;"/><div>'+p1t+'</div></a>';
         fp.appendChild(p1card);
     });
       
