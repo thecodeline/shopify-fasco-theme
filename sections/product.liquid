@@ -218,7 +218,13 @@
   },
   function(data, status){
     if(status == "success"){
-    alert("Data: " + data);      
+    //alert("Data: " + data);   
+
+    var all_products = data;
+      all_products.split(",");
+      $.getJSON('/products.json', function(data) {
+var parray = data.products;
+      
     }
 
   });
