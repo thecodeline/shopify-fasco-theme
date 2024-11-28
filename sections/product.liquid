@@ -219,8 +219,9 @@
   function(data, status){
     if(status == "success"){
     //alert("Data: " + data);   
-
+   
     var all_products = data;
+      console.log(all_products);
       all_products.split(",");
       $.getJSON('/products.json', function(data) {
 var parray = data.products;
