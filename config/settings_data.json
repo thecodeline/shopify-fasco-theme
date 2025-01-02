@@ -7,7 +7,7 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
- {
+{
   "current": {
     "font_heading": "helvetica_n4",
     "sections": {
@@ -130,7 +130,16 @@
       "collection-list",
       "featured-product",
       "newsletter_F6GX4d"
-    ]
+    ],
+    "blocks": {
+      "1530068250781986104": {
+        "type": "shopify://apps/fast-bundle/blocks/fast_bundle/9e87fbe2-9041-4c23-acf5-322413994cef",
+        "disabled": false,
+        "settings": {
+          "home": false
+        }
+      }
+    }
   },
   "presets": {
     "Default": {
