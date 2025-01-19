@@ -132,15 +132,13 @@
       "newsletter_F6GX4d"
     ],
     "blocks": {
-      "1530068250781986104": {
-        "type": "shopify://apps/fast-bundle/blocks/fast_bundle/9e87fbe2-9041-4c23-acf5-322413994cef",
-        "disabled": false,
-        "settings": {
-          "home": false
-        }
-      },
       "11242429557760608184": {
         "type": "shopify://apps/referrly/blocks/main-app-embed/75b5ccd5-af90-4f81-ab89-2c28499171fd",
+        "disabled": false,
+        "settings": {}
+      },
+      "3824936769257688723": {
+        "type": "shopify://apps/sami-product-labels/blocks/app-embed-block/b9b44663-5d51-4be1-8104-faedd68da8c5",
         "disabled": false,
         "settings": {}
       }
